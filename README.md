@@ -14,4 +14,4 @@ The server will start on port 8080. You can access it by navigating to `http://l
 
 ## Looks like this
 
-![Website](go_web_app\static\images\golang-website.png)
+![Website](go_web_app/static/images/golang-website.png)
