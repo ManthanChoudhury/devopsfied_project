@@ -1,3 +1,21 @@
 docker build -t soul693/go-web-app:v1 .
 
 docker run -p 8080:8080 -it soul693/go-web-app:v1
+
+git clone https://github.com/ManthanChoudhury/devopsfied_project.git
+    4  ll
+    5  cd devopsfied_project/
+    6  ll
+    7  kubectl apply -f k8s/manifest/deployment.yaml 
+    8  kubectl get pods
+    9  kubectl apply -f k8s/manifest/service.yaml 
+   10  kubectl get servic
+   11  kubectl get service
+   12  kubectl apply -f k8s/manifest/ingress.yaml 
+   13  kubectl get ingress
+   14  kubectl get ifg
+   15  kubectl get ing
+   16  kubectl edit svc go-web-app
+   17  kubectl get svc
+   18  kubectl get nodes -o wide
+   19 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.11.1/deploy/static/provider/baremetal/deploy.yaml
