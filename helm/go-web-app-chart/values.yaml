@@ -10,6 +10,9 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: "10228620575"
 
+service:
+  port: 80
+
 ingress:
   enabled: false
   className: ""
