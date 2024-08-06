@@ -1,5 +1,3 @@
-// Test the main function
-
 package main
 
 import (
@@ -9,13 +7,13 @@ import (
 )
 
 func TestMain(t *testing.T) {
-	req, err := http.NewRequest("GET", "/index", nil)
+	req, err := http.NewRequest("GET", "/home", nil)
 	if err != nil {
 		t.Fatal(err)
 	}
 
 	rr := httptest.NewRecorder()
-	handler := http.HandlerFunc(homePage)
+	handler := http.HandlerFunc(index)
 
 	handler.ServeHTTP(rr, req)
 
@@ -24,10 +22,15 @@ func TestMain(t *testing.T) {
 			status, http.StatusOK)
 	}
 
-	// Just verify the code not html content
-	expected := "text/html; charset=utf-8"
-	if contentType := rr.Header().Get("Content-Type"); contentType != expected {
+	expectedContentType := "text/html; charset=utf-8"
+	if contentType := rr.Header().Get("Content-Type"); contentType != expectedContentType {
 		t.Errorf("handler returned unexpected content type: got %v want %v",
-			contentType, expected)
+			contentType, expectedContentType)
+	}
+
+	expectedContent := "<!DOCTYPE html>"
+	if rr.Body.String()[:len(expectedContent)] != expectedContent {
+		t.Errorf("handler returned unexpected body: got %v want %v",
+			rr.Body.String(), expectedContent)
 	}
 }
