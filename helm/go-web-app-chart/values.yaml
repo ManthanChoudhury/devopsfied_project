@@ -8,7 +8,7 @@ image:
   repository: soul693/go-web-app
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "10228620575"
+  tag: "10332073218"
 
 service:
   port: 80
